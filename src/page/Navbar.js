@@ -12,12 +12,14 @@ function Nav(props) {
   const toggleStyle = () => {
     if (darkmode.backgroundColor === "#0d6efd") {
       setDarkmode({
+        color: "white",
         backgroundColor: "black",
         btnText: "Dark Mode On",
         // Dark='Dark Mode on'
       });
     } else {
       setDarkmode({
+        color: "white",
         backgroundColor: "#0d6efd",
         btnText: "Dark mode Off",
       });
