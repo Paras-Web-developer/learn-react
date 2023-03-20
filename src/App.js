@@ -6,7 +6,7 @@ import TextForm from "./page/TextForm";
 function App() {
   return (
     <>
-      <Nav Home="Home" />
+      <Nav Dark="Dark" />
       <Home />
       <TextForm heading="Enter Your Text"/>
     </>
