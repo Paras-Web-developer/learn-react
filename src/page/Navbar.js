@@ -3,28 +3,26 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 function Nav(props) {
-
   const [darkmode, setDarkmode] = useState({
-    color: "black",
-    backgroundColor: "red",
-    btnText:'Dark mode Off'
+    color: "white",
+    backgroundColor: "#0d6efd",
+    btnText: "Dark mode Off",
   });
 
   const toggleStyle = () => {
-    if (darkmode.color === "black") {
+    if (darkmode.backgroundColor === "#0d6efd") {
       setDarkmode({
         color: "white",
         backgroundColor: "black",
-        btnText: 'Dark Mode on'
+        btnText: "Dark Mode On",
         // Dark='Dark Mode on'
       });
-    }
-    else{
+    } else {
       setDarkmode({
-        color:'black',
-        backgroundColor: 'red',
-        btnText:'Dark mode Off'
-      })
+        color: "white",
+        backgroundColor: "#0d6efd",
+        btnText: "Dark mode Off",
+      });
     }
   };
 
@@ -35,21 +33,19 @@ function Nav(props) {
         data-bs-theme="dark"
         style={darkmode}
       >
-        <div className="left" style={darkmode}>
+        <div className="left">
           <h3>Sunfocus</h3>
         </div>
         <div className="right">
-          <ul
-            className="d-flex list-unstyled align-items-center justify-content-center text-white mt-2"
-            style={darkmode}
-          >
+          <ul className="d-flex list-unstyled align-items-center justify-content-center text-white mt-2">
             <li className="mx-3">Home</li>
             <li className="mx-3">Service</li>
             <li className="mx-3">About us</li>
             <li className="mx-3">Contect us</li>
             <button
               className="btn border-2 border-white fw-bold"
-              onClick={toggleStyle} style={darkmode}
+              onClick={toggleStyle}
+              style={darkmode}
             >
               {darkmode.btnText}
             </button>
