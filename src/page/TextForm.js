@@ -20,6 +20,18 @@ export default function TextForm(props) {
   const clear = () => {
     setText("");
   };
+  const extraSpace = () => {
+    const removeSpace = document.getElementById(
+      "exampleFormControlTextarea1"
+    ).value;
+    let copy =removeSpace.split(/[ ]+/);
+    setText(copy.join(" "));
+    console.log(removeSpace);
+  };
+  // const extraSpace = () => {
+  //   let newText = text.split(/[ ]+/);
+  //   setText(newText.join());
+  // };
 
   const clickText = (event) => {
     setText(event.target.value);
@@ -27,34 +39,42 @@ export default function TextForm(props) {
 
   return (
     <>
-      <div className="mb-3 container">
-        <h4>{props.heading}</h4>
+      <div className={`mb-3 container text-${props.mode==='primary'?'primary':'white'}`}>
+        <h4>Enter Your Text </h4>
         <textarea
-          className="form-control"
+          className={`form-control bg-${props.mode==='primary'?'light':'dark'} text-${props.mode==='primary'?'dark':'light'}`}
           id="exampleFormControlTextarea1"
           rows="5"
           value={text}
           onChange={clickText}
+
         ></textarea>
         <div className="d-flex flex-row mt-2 justify-content-between ">
           <div>
-            <button className="btn btn-primary me-2" onClick={UpperCase}>
+            <button className="btn btn-primary m-2" onClick={UpperCase}>
               Convert To UpperCase.
             </button>
-            <button className="btn btn-outline-primary" onClick={lowerCase}>
+            <button
+              className="btn btn-outline-primary m-2"
+              onClick={lowerCase}
+            >
               Convert To LowerCase.
+            </button>
+            <button className="btn btn-outline-primary m-2" onClick={extraSpace}>
+              Remove Extra Spaces
             </button>
           </div>
           <div>
-            <button className="btn btn-outline-danger" onClick={clear}>
+            <button className="btn btn-outline-danger m-2" onClick={clear}>
               clear
             </button>
           </div>
         </div>
       </div>
       <div className="container">
-        <h2>Your text summary</h2>
-        <p>
+        <h2 className="text-primary">Your text summary</h2>
+        {/* <h2 className="text-primary">Your Text summary</h2> */}
+        <p className={`text-${props.mode==='primary'?'dark':'light'}`}>
           Total Words : {text.split(" ").length - 1} <br />
           Total Characters :{text.length}
           <br />
@@ -62,8 +82,8 @@ export default function TextForm(props) {
           {0.008 * text.split("").length}
         </p>
 
-        <h1>Here is your Total Paragraph</h1>
-        <p style={{ color: "#757575" }}>{text}</p>
+        <h1 className="text-primary">Here is your Total Paragraph</h1>
+        <p className={`text-${props.mode==='primary'?'dark':'light'}`}>{text}</p>
       </div>
     </>
   );
