@@ -1,5 +1,5 @@
 // import logo from "./logo.svg";
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 function Nav(props) {
@@ -55,7 +55,6 @@ function Nav(props) {
                 role="switch"
                 id="flexSwitchCheckDefault"
                 onClick={props.togglemode}
-                
               />
             </div>
           </ul>
